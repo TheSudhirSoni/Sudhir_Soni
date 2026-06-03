@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500&family=Syne:wght@300;400;500;600;700&display=swap');
+
+/* ============================================================
+   VARIABLES
+============================================================ */
+:root {
+  --bg-base:            #02060d;
+  --bg-deep:            #010308;
+  --bg-mid:             #030814;
+  --bg-blue:            #0B1A2F;
+  --bg-blue-light:      #112341;
+  --cyan-deep:          #0EA5E9;
+  --cyan-main:          #38BDF8;
+  --cyan-bright:        #7DD3FC;
+  --gold-deep:          #B8915C;
+  --gold-main:          #E0B470;
+  --gold-bright:        #F0CB8A;
+  --violet-glow:        rgba(139, 92, 246, 0.18);
+  --teal-glow:          rgba(45, 212, 191, 0.15);
+  --indigo-glow:        rgba(99, 102, 241, 0.22);
+  --text-primary:       #F1F5F9;
+  --text-secondary:     #B8C0CC;
+  --text-muted:         #6B7280;
+  --glass-bg:           rgba(56, 189, 248, 0.03);
+  --glass-bg-hover:     rgba(56, 189, 248, 0.06);
+  --glass-border:       rgba(148, 163, 184, 0.12);
+  --glass-border-hover: rgba(224, 180, 112, 0.4);
+  --line:               rgba(255, 255, 255, 0.08);
+}
+
+/* ============================================================
+   RESET
+============================================================ */
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; padding: 0; }
+*::selection { background: var(--gold-main); color: var(--bg-base); }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: var(--bg-base);
+  color: var(--text-primary);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 18px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+a { color: inherit; text-decoration: none; }
+button { font: inherit; cursor: pointer; }
+img { display: block; max-width: 100%; }
+
+/* ============================================================
+   GLOBAL BACKGROUND — FIXED, COVERS ENTIRE PAGE
+============================================================ */
+.nebula-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background: var(--bg-base);
+  overflow: hidden;
+}
+
+.nebula-bg::before, .nebula-bg::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.5;
+  animation: nebulaDrift 26s infinite ease-in-out;
+}
+
+.nebula-bg::before {
+  width: 60vw; height: 60vw;
+  top: -10%; left: -10%;
+  background: radial-gradient(circle, var(--violet-glow), transparent 70%);
+}
+
+.nebula-bg::after {
+  width: 50vw; height: 50vw;
+  right: -10%; bottom: -10%;
+  background: radial-gradient(circle, var(--teal-glow), transparent 70%);
+  animation-delay: -13s;
+}
+
+.nebula-third {
+  position: absolute;
+  width: 44vw; height: 44vw;
+  top: 32%; left: 42%;
+  border-radius: 50%;
+  filter: blur(140px);
+  opacity: 0.35;
+  background: radial-gradient(circle, var(--indigo-glow), transparent 70%);
+  animation: nebulaDrift 31s infinite ease-in-out;
+  animation-delay: -7s;
+}
+
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Canvas sits at z-index 0, all sections at z-index 1 so they sit above */
+#particleCanvas {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.55;
+  pointer-events: none;
+  display: block;
+}

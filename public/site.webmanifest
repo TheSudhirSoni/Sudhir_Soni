@@ -1,0 +1,23 @@
+{
+  "name": "Sudhir Soni",
+  "short_name": "Sudhir Soni",
+  "description": "A philosopher's space for the inner life — clarity, meaning, and honest conversation.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#02060d",
+  "theme_color": "#02060d",
+  "icons": [
+    {
+      "src": "/favicon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

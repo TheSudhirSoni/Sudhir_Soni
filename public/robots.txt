@@ -1,0 +1,26 @@
+User-agent: *
+
+# Block old WordPress ghost URLs only
+Disallow: /wp-content/
+Disallow: /wp-includes/
+Disallow: /wp-admin/
+Disallow: /wp-login.php
+Disallow: /welcome-to-sudhirsoni/
+Disallow: /tag/
+Disallow: /category/
+Disallow: /cart/
+Disallow: /cart-2/
+
+# Block URL parameters (old WooCommerce/affiliate junk)
+Disallow: /*?wc-ajax=
+Disallow: /*?ref=
+Disallow: /*?add-to-cart=
+
+# Block private/utility paths
+Disallow: /admin/
+Disallow: /studio/
+Disallow: /api/
+Disallow: /_next/
+
+# Sitemap
+Sitemap: https://www.sudhirsoni.com/sitemap.xml

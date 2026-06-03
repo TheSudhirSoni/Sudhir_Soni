@@ -1,0 +1,8 @@
+{
+  "redirects": [
+    { "source": "/home", "destination": "/", "permanent": true },
+    { "source": "/blog", "destination": "/wisdom", "permanent": true },
+    { "source": "/contact-us", "destination": "/contact", "permanent": true },
+    { "source": "/book-a-session", "destination": "/book", "permanent": true }
+  ]
+}
